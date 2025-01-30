@@ -10,6 +10,7 @@ public class main {
         BST.insert(200);
         BST.insert(195);
         BST.insert(0);
+        
         // System.out.println(BST.treeMinimum());
         BST.delete(175);
         BST.delete(100);
