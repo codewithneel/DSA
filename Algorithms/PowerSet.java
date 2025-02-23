@@ -13,7 +13,7 @@ public class PowerSet {
     public static List<List<Integer>> powerSet(int[] nums){
         List<List<Integer>> sol = new ArrayList<List<Integer>>();
         
-        dfs(0, nums, sol, new Stack<Integer>());
+        powerSetHelper(0, nums, sol, new Stack<Integer>());
         return sol;
     }
 
@@ -22,7 +22,7 @@ public class PowerSet {
      * Decision space: add and don't add
      * Choices: nums
      */
-    private static void dfs(int i, int[] nums, List<List<Integer>> sol, Stack<Integer> curr){
+    private static void powerSetHelper(int i, int[] nums, List<List<Integer>> sol, Stack<Integer> curr){
         if(i == nums.length){
             sol.add(new ArrayList<>(curr));
             return;
@@ -30,11 +30,11 @@ public class PowerSet {
 
         // Add
         curr.push(nums[i]);
-        dfs(i+1, nums, sol, curr);
+        powerSetHelper(i+1, nums, sol, curr);
 
         // Don't add
         curr.pop();
-        dfs(i+1, nums, sol, curr);
+        powerSetHelper(i+1, nums, sol, curr);
 
     }
 
@@ -53,6 +53,6 @@ public class PowerSet {
 
     public static void main(String[] args){
         int[] nums = {3,6,9};
-        System.out.println(PowerSet.powerSet(nums));
+        System.out.println(powerSet(nums));
     }
 }
