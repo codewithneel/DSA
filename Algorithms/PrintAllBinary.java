@@ -20,8 +20,8 @@ public class PrintAllBinary{
             return;
         }
 
-        for(char c = '0'; c <= '1'; c++){
-            dfs(c + s, digits - 1);
+        for(char bit = '0'; bit <= '1'; bit++){
+            dfs(bit + s, digits - 1);
         }
     }
 
