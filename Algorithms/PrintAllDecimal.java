@@ -11,7 +11,7 @@ public class PrintAllDecimal {
     }
 
     /*
-     * Decision tree solution: Permutation + exhaustive search 
+     * Permutation + exhaustive search 
      * Choices: {0-9}
      */
     private static void printAllDecimalHelper(String s, int digits){

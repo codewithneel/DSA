@@ -11,7 +11,7 @@ public class PrintAllBinary{
     }
 
     /*
-     * Decision tree solution: Permutation + exhaustive search 
+     * Permutation + exhaustive search 
      * Choices: {0, 1}
      */
     private static void printAllBinaryHelper(String s, int digits){
@@ -21,6 +21,8 @@ public class PrintAllBinary{
         }
 
         for(char bit = '0'; bit <= '1'; bit++){
+            
+            //choose, explore, unchoose in one step
             printAllBinaryHelper(s + bit, digits - 1);
         }
     }

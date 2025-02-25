@@ -17,7 +17,7 @@ public class DiceSum {
     } 
 
     /*
-     * Decision tree solution: Permutation + exhaustive search 
+     * Permutation + exhaustive search problem
      * Choices: {1-6}
      */
     public static void diceSumHelper(int dice, int target, Stack<Integer> curr, List<List<Integer>> sol){
@@ -27,8 +27,13 @@ public class DiceSum {
             }
         } else if(target >= dice * 1 && target <= dice * 6){    //Optimization step (trim branches): if target is not within the bounds of possible values for the number of dice left to roll, then withdraw from path
             for(int i = 1; i <= 6; i++){
+                //choose
                 curr.push(i);
+
+                //explore
                 diceSumHelper(dice-1, target-i, curr, sol);
+                
+                //unchoose
                 curr.pop();
             }
         }

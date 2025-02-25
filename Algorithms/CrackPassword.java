@@ -3,7 +3,8 @@ package Algorithms;
 public class CrackPassword {
 
     /*
-     * Rules for passcode: only lowercase letters (a-z), special symbols (!, ?, .), and numbers (0,9) 
+     * Returns password if login is successful
+     * Password consists of only lowercase letters (a-z), special symbols (!, ?, .), and numbers (0,9) 
      * len: length of password
      * Runtime: O(39^n), n = len of password and base 39 represents the number of choices
      */

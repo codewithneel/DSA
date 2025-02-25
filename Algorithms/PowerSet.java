@@ -18,7 +18,7 @@ public class PowerSet {
     }
 
     /*
-     * Decision tree solution: Combination + exhaustive search
+     * Combination + exhaustive search
      * Decision space: add and don't add
      * Choices: nums
      */
