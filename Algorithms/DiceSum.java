@@ -8,7 +8,7 @@ public class DiceSum {
 
     /* 
      * Returns all possible outcomes of rolling the given number of dice that add up to the target
-     * Runtime: O(n*6^n)
+     * Runtime: O(n * 6^n)
      */
     public static List<List<Integer>> diceSum(int dice, int target){
         List<List<Integer>> sol = new ArrayList<List<Integer>>();
@@ -25,7 +25,7 @@ public class DiceSum {
             if(target == 0){
                 sol.add(new ArrayList<Integer>(curr));
             }
-        } else if(target >= dice * 1 && target <= dice * 6){ //Optimization step (trim branches): if target is not within the bounds of possible values for the number of dice left to roll, then withdraw from path
+        } else if(target >= dice * 1 && target <= dice * 6){    //Optimization step (trim branches): if target is not within the bounds of possible values for the number of dice left to roll, then withdraw from path
             for(int i = 1; i <= 6; i++){
                 curr.push(i);
                 diceSumHelper(dice-1, target-i, curr, sol);
