@@ -28,10 +28,7 @@ private:
     bool removeHelper(std::string word, TrieNode*& node, int i);
     bool containsPrefixHelper(std::string prefix, TrieNode* node, int i) const;
     void deleteTrie(TrieNode* node);
-};
-
-//Another way to insert a word into the trie
-void operator +=(Trie trie, std::string word);
+};  
 
 
 #endif
