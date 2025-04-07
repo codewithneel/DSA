@@ -24,12 +24,13 @@ void Graph::addEdge(char u, char v){
 }
 
 std::vector<char> Graph::shortestPath(char u, char v) const{
-    //if u or v does not exist in graph, do nothing
-    if(!graph.count(u) || !graph.count(v)) return {};
+    //if u or v do not exist in graph, 
+    //or if starting vertex is equal to destination, do nothing
+    if(!graph.count(u) || !graph.count(v) || u == v) return {};
 
     std::vector<char> prev(26, 0); //Ascii value 0 represents NULL
     //Perform bfs with u as source vertex
-    shortestPathHelper(u, prev);
+    bfs(u, v, prev);
 
     
     int ind = v - 'a';
@@ -51,7 +52,7 @@ std::vector<char> Graph::shortestPath(char u, char v) const{
  *vertex u is the source vertex
  *track parent node of node visited -> BFS traversal of a graph represents a tree
  */
-void Graph::shortestPathHelper(char u, std::vector<char>& prev) const{
+void Graph::bfs(char u, char v, std::vector<char>& prev) const{
     std::unordered_set<char> visited;
     std::queue<char> q;
 
@@ -63,9 +64,10 @@ void Graph::shortestPathHelper(char u, std::vector<char>& prev) const{
         char cur = q.front(); //explore vertex
         for(char neighbor : graph.at(cur)){ //for each unvisited neigbor:
             if(!visited.count(neighbor)){
+                prev[neighbor - 'a'] = cur; //set parent of neighbor to cur vertex
+                if(neighbor == v) return; //optimization step
                 q.push(neighbor);
-                visited.insert(neighbor); //mark visited
-                prev[neighbor - 'a'] = cur; //set parent of neighbor to cur vertex 
+                visited.insert(neighbor); //mark visited 
             }
         }
         q.pop();

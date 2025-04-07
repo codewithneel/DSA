@@ -28,7 +28,7 @@ int main(){
     graph.addEdge('n', 'p'); //Graph NOT CONNECTED!
     // graph.printGraph();
 
-    std::vector<char> path = graph.shortestPath('n', 'a');
+    std::vector<char> path = graph.shortestPath('d', 'j');
     if(path.size() != 0) {
         printPath(path);
     } else {

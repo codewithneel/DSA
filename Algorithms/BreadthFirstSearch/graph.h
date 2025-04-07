@@ -8,10 +8,8 @@
 /*Unweighted, directed graph*/
 class Graph{
 public:
-    // Graph();
-    // ~Graph();
 
-    /*Inserts directed edge (u,v) to graph*/
+    /*Inserts directed edge from u to v*/
     void addEdge(char u, char v);
 
     /*Returns shortest path from u to v. Time complexity: O(V + E)*/
@@ -31,7 +29,7 @@ private:
      */
     std::unordered_map<char, std::unordered_set<char>> graph;
 
-    void shortestPathHelper(char u, std::vector<char>& prev) const;
+    void bfs(char u, char v, std::vector<char>& prev) const;
 };
 
 #endif
