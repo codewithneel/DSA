@@ -1,0 +1,8 @@
+# ignore all files starting with .
+.*
+
+# ignore compiled files
+*.out
+
+# track these files, if they exist
+!.gitignore
